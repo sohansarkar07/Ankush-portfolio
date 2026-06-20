@@ -447,17 +447,56 @@ ul, ol {
   background: rgba(245, 240, 232, 0.97);
 }
 
-/* Light mode hero overlay — lighter tint */
+/* Light mode hero overlay — keep dark so text stays readable on the image */
 [data-theme="light"] .hero {
   background-image:
-    linear-gradient(to bottom, rgba(245,240,232,0.60) 0%, rgba(245,240,232,0.42) 40%, rgba(245,240,232,0.70) 100%),
+    linear-gradient(to bottom, rgba(10,10,15,0.65) 0%, rgba(10,10,15,0.50) 40%, rgba(10,10,15,0.72) 100%),
     url('background/Mermaid During Sunset.jpg');
 }
 
-/* Light mode hero text tweak */
+/* Force hero text to white in light mode for contrast against the dark overlay */
+[data-theme="light"] .hero-title-word {
+  color: #ffffff;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+}
+
 [data-theme="light"] .hero-title-outline {
-  -webkit-text-stroke: 2px var(--accent);
-  text-stroke: 2px var(--accent);
+  color: transparent;
+  -webkit-text-stroke: 2px #f5a623;
+  text-stroke: 2px #f5a623;
+}
+
+[data-theme="light"] .hero-title-outline::after {
+  background: linear-gradient(135deg, #f5a623 0%, #ff6b35 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+[data-theme="light"] .hero-script {
+  color: #f5a623;
+}
+
+[data-theme="light"] .hero-role {
+  color: #e8e0d5;
+}
+
+[data-theme="light"] .hero-divider {
+  background: rgba(245,166,35,0.6);
+}
+
+[data-theme="light"] .hero-description {
+  color: #d8d0c5;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+}
+
+[data-theme="light"] .hero-badge {
+  color: #ffd080;
+  border-color: rgba(245,166,35,0.3);
+  background: rgba(245,166,35,0.12);
+}
+
+[data-theme="light"] .hero-badge-dot {
+  background: #4ade80;
 }
 
 /* Light mode loader bg */
