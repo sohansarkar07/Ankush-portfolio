@@ -16,6 +16,21 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   document.body.style.overflow = 'hidden';
 
+  // ─── THEME TOGGLE ──────────────────────────
+  const themeToggle = document.getElementById('themeToggle');
+  const htmlEl = document.documentElement;
+
+  // Load saved theme preference
+  const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
+  htmlEl.setAttribute('data-theme', savedTheme);
+
+  themeToggle.addEventListener('click', () => {
+    const current = htmlEl.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    htmlEl.setAttribute('data-theme', next);
+    localStorage.setItem('portfolio-theme', next);
+  });
+
   // ─── CUSTOM CURSOR ─────────────────────────
   const cursor = document.getElementById('cursor');
   const follower = document.getElementById('cursorFollower');
